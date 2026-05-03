@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Baily Auto Studio — Business Cards (Print)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    /* ── Print setup ── */
+    @page {
+      size: letter portrait;
+      margin: 0.5in;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0f0ee;
+      font-family: 'DM Sans', sans-serif;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #444;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .page-label {
+      font-size: .75rem;
+      color: #888;
+      text-align: center;
+      margin-bottom: .75rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    /* ── Card grid ── */
+    .card-sheet {
+      display: grid;
+      grid-template-columns: repeat(2, 3.5in);
+      grid-template-rows: repeat(5, 2in);
+      gap: 0.125in;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    /* ── Card base ── */
+    .card {
+      width: 3.5in;
+      height: 2in;
+      overflow: hidden;
+      border-radius: 8px;
+      position: relative;
+      font-size: 0; /* reset inline-block gaps */
+    }
+
+    /* ══════════ FRONT ══════════ */
+    .card-front {
+      background: #090909;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0.22in 0.26in 0.18in;
+      border: 1px solid rgba(255,255,255,.07);
+    }
+
+    /* Subtle grid texture */
+    .card-front::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,170,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,170,255,.025) 1px, transparent 1px);
+      background-size: 18px 18px;
+      pointer-events: none;
+    }
+
+    /* Blue accent bar — left edge */
+    .card-front::after {
+      content: '';
+      position: absolute;
+      top: 0.18in;
+      bottom: 0.18in;
+      left: 0;
+      width: 3px;
+      background: #00AAFF;
+      border-radius: 0 2px 2px 0;
+    }
+
+    .cf-top { position: relative; z-index: 1; }
+
+    .cf-badge {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 7pt;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #00AAFF;
+      margin-bottom: 0.05in;
+      display: block;
+    }
+
+    .cf-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28pt;
+      line-height: .92;
+      letter-spacing: .02em;
+      color: #f0f0f0;
+    }
+
+    .cf-name .accent { color: #00AAFF; }
+
+    .cf-tagline {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #C0C0C0;
+      margin-top: 0.06in;
+      display: block;
+    }
+
+    .cf-bottom {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .cf-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 2pt;
+    }
+
+    .cf-contact span {
+      font-size: 7pt;
+      color: #888;
+      font-weight: 400;
+      letter-spacing: .04em;
+    }
+
+    .cf-contact span strong {
+      color: #f0f0f0;
+      font-weight: 600;
+    }
+
+    .cf-dba {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 6.5pt;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #555;
+      text-align: right;
+    }
+
+    /* ══════════ BACK ══════════ */
+    .card-back {
+      background: #00AAFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0.22in 0.28in;
+      position: relative;
+    }
+
+    /* Dark overlay strips for texture */
+    .card-back::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -55deg,
+        transparent,
+        transparent 18px,
+        rgba(0,0,0,.04) 18px,
+        rgba(0,0,0,.04) 19px
+      );
+      pointer-events: none;
+    }
+
+    .cb-inner { position: relative; z-index: 1; text-align: center; }
+
+    .cb-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26pt;
+      line-height: .9;
+      letter-spacing: .03em;
+      color: #090909;
+    }
+
+    .cb-tagline {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 7pt;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(9,9,9,.55);
+      margin-top: 5pt;
+      display: block;
+    }
+
+    .cb-divider {
+      width: 40pt;
+      height: 1.5pt;
+      background: rgba(9,9,9,.2);
+      margin: 8pt auto;
+      border-radius: 1px;
+    }
+
+    .cb-services {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3pt 16pt;
+      text-align: left;
+    }
+
+    .cb-services span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 6.5pt;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(9,9,9,.7);
+    }
+
+    .cb-url {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 7pt;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(9,9,9,.45);
+      margin-top: 8pt;
+      display: block;
+    }
+
+    /* ── Print instructions (screen only) ── */
+    @media screen {
+      .print-tip {
+        background: #222;
+        color: #ccc;
+        border-radius: 8px;
+        padding: 1rem 1.5rem;
+        font-size: .8rem;
+        line-height: 1.7;
+        max-width: 680px;
+        margin: 0 auto 2rem;
+      }
+      .print-tip strong { color: #00AAFF; }
+    }
+
+    @media print {
+      body { background: white; padding: 0; }
+      h1, .page-label, .print-tip { display: none; }
+      .card-sheet { gap: 0.1in; }
+    }
+  </style>
+</head>
+<body>
+
+<h1>Baily Auto Studio — Business Cards</h1>
+
+<div class="print-tip">
+  <strong>How to print:</strong> File → Print → set paper to <strong>Letter</strong>, margins to <strong>None / Minimum</strong>, scale to <strong>100%</strong>. Print on cardstock (80–100 lb recommended). Cut along the card edges. Each sheet holds 10 cards — 5 fronts or 5 backs. Print fronts first, then flip the sheet and print backs.
+</div>
+
+<!-- ── FRONT SIDE ── -->
+<div class="page-label">Front Side — Print first</div>
+<div class="card-sheet">
+
+  <!-- Repeat ×10 for a full letter sheet -->
+  <div class="card card-front">
+    <div class="cf-top">
+      <span class="cf-badge">Columbus, OH · Auto Detailing</span>
+      <div class="cf-name">BAILY<br><span class="accent">AUTO STUDIO</span></div>
+      <span class="cf-tagline">Take Chances… Make Champions!!!</span>
+    </div>
+    <div class="cf-bottom">
+      <div class="cf-contact">
+        <span><strong>614-381-3091</strong></span>
+        <span><strong>1200 Sullivant Ave</strong> · Columbus, OH 43223</span>
+        <span>Fri &amp; Sat 10AM–9PM · Mobile Detail by Appt</span>
+        <span>@bailyautostudio · bailyautostudio.com</span>
+      </div>
+      <div class="cf-dba">Baily Precision<br>Auto LLC</div>
+    </div>
+  </div>
+
+  <div class="card card-front">
+    <div class="cf-top">
+      <span class="cf-badge">Columbus, OH · Auto Detailing</span>
+      <div class="cf-name">BAILY<br><span class="accent">AUTO STUDIO</span></div>
+      <span class="cf-tagline">Take Chances… Make Champions!!!</span>
+    </div>
+    <div class="cf-bottom">
+      <div class="cf-contact">
+        <span><strong>614-381-3091</strong></span>
+        <span><strong>1200 Sullivant Ave</strong> · Columbus, OH 43223</span>
+        <span>Fri &amp; Sat 10AM–9PM · Mobile Detail by Appt</span>
+        <span>@bailyautostudio · bailyautostudio.com</span>
+      </div>
+      <div class="cf-dba">Baily Precision<br>Auto LLC</div>
+    </div>
+  </div>
+
+  <div class="card card-front">
+    <div class="cf-top">
+      <span class="cf-badge">Columbus, OH · Auto Detailing</span>
+      <div class="cf-name">BAILY<br><span class="accent">AUTO STUDIO</span></div>
+      <span class="cf-tagline">Take Chances… Make Champions!!!</span>
+    </div>
+    <div class="cf-bottom">
+      <div class="cf-contact">
+        <span><strong>614-381-3091</strong></span>
+        <span><strong>1200 Sullivant Ave</strong> · Columbus, OH 43223</span>
+        <span>Fri &amp; Sat 10AM–9PM · Mobile Detail by Appt</span>
+        <span>@bailyautostudio · bailyautostudio.com</span>
+      </div>
+      <div class="cf-dba">Baily Precision<br>Auto LLC</div>
+    </div>
+  </div>
+
+  <div class="card card-front">
+    <div class="cf-top">
+      <span class="cf-badge">Columbus, OH · Auto Detailing</span>
+      <div class="cf-name">BAILY<br><span class="accent">AUTO STUDIO</span></div>
+      <span class="cf-tagline">Take Chances… Make Champions!!!</span>
+    </div>
+    <div class="cf-bottom">
+      <div class="cf-contact">
+        <span><strong>614-381-3091</strong></span>
+        <span><strong>1200 Sullivant Ave</strong> · Columbus, OH 43223</span>
+        <span>Fri &amp; Sat 10AM–9PM · Mobile Detail by Appt</span>
+        <span>@bailyautostudio · bailyautostudio.com</span>
+      </div>
+      <div class="cf-dba">Baily Precision<br>Auto LLC</div>
+    </div>
+  </div>
+
+  <div class="card card-front">
+    <div class="cf-top">
+      <span class="cf-badge">Columbus, OH · Auto Detailing</span>
+      <div class="cf-name">BAILY<br><span class="accent">AUTO STUDIO</span></div>
+      <span class="cf-tagline">Take Chances… Make Champions!!!</span>
+    </div>
+    <div class="cf-bottom">
+      <div class="cf-contact">
+        <span><strong>614-381-3091</strong></span>
+        <span><strong>1200 Sullivant Ave</strong> · Columbus, OH 43223</span>
+        <span>Fri &amp; Sat 10AM–9PM · Mobile Detail by Appt</span>
+        <span>@bailyautostudio · bailyautostudio.com</span>
+      </div>
+      <div class="cf-dba">Baily Precision<br>Auto LLC</div>
+    </div>
+  </div>
+
+  <div class="card card-front">
+    <div class="cf-top">
+      <span class="cf-badge">Columbus, OH · Auto Detailing</span>
+      <div class="cf-name">BAILY<br><span class="accent">AUTO STUDIO</span></div>
+      <span class="cf-tagline">Take Chances… Make Champions!!!</span>
+    </div>
+    <div class="cf-bottom">
+      <div class="cf-contact">
+        <span><strong>614-381-3091</strong></span>
+        <span><strong>1200 Sullivant Ave</strong> · Columbus, OH 43223</span>
+        <span>Fri &amp; Sat 10AM–9PM · Mobile Detail by Appt</span>
+        <span>@bailyautostudio · bailyautostudio.com</span>
+      </div>
+      <div class="cf-dba">Baily Precision<br>Auto LLC</div>
+    </div>
+  </div>
+
+  <div class="card card-front">
+    <div class="cf-top">
+      <span class="cf-badge">Columbus, OH · Auto Detailing</span>
+      <div class="cf-name">BAILY<br><span class="accent">AUTO STUDIO</span></div>
+      <span class="cf-tagline">Take Chances… Make Champions!!!</span>
+    </div>
+    <div class="cf-bottom">
+      <div class="cf-contact">
+        <span><strong>614-381-3091</strong></span>
+        <span><strong>1200 Sullivant Ave</strong> · Columbus, OH 43223</span>
+        <span>Fri &amp; Sat 10AM–9PM · Mobile Detail by Appt</span>
+        <span>@bailyautostudio · bailyautostudio.com</span>
+      </div>
+      <div class="cf-dba">Baily Precision<br>Auto LLC</div>
+    </div>
+  </div>
+
+  <div class="card card-front">
+    <div class="cf-top">
+      <span class="cf-badge">Columbus, OH · Auto Detailing</span>
+      <div class="cf-name">BAILY<br><span class="accent">AUTO STUDIO</span></div>
+      <span class="cf-tagline">Take Chances… Make Champions!!!</span>
+    </div>
+    <div class="cf-bottom">
+      <div class="cf-contact">
+        <span><strong>614-381-3091</strong></span>
+        <span><strong>1200 Sullivant Ave</strong> · Columbus, OH 43223</span>
+        <span>Fri &amp; Sat 10AM–9PM · Mobile Detail by Appt</span>
+        <span>@bailyautostudio · bailyautostudio.com</span>
+      </div>
+      <div class="cf-dba">Baily Precision<br>Auto LLC</div>
+    </div>
+  </div>
+
+  <div class="card card-front">
+    <div class="cf-top">
+      <span class="cf-badge">Columbus, OH · Auto Detailing</span>
+      <div class="cf-name">BAILY<br><span class="accent">AUTO STUDIO</span></div>
+      <span class="cf-tagline">Take Chances… Make Champions!!!</span>
+    </div>
+    <div class="cf-bottom">
+      <div class="cf-contact">
+        <span><strong>614-381-3091</strong></span>
+        <span><strong>1200 Sullivant Ave</strong> · Columbus, OH 43223</span>
+        <span>Fri &amp; Sat 10AM–9PM · Mobile Detail by Appt</span>
+        <span>@bailyautostudio · bailyautostudio.com</span>
+      </div>
+      <div class="cf-dba">Baily Precision<br>Auto LLC</div>
+    </div>
+  </div>
+
+  <div class="card card-front">
+    <div class="cf-top">
+      <span class="cf-badge">Columbus, OH · Auto Detailing</span>
+      <div class="cf-name">BAILY<br><span class="accent">AUTO STUDIO</span></div>
+      <span class="cf-tagline">Take Chances… Make Champions!!!</span>
+    </div>
+    <div class="cf-bottom">
+      <div class="cf-contact">
+        <span><strong>614-381-3091</strong></span>
+        <span><strong>1200 Sullivant Ave</strong> · Columbus, OH 43223</span>
+        <span>Fri &amp; Sat 10AM–9PM · Mobile Detail by Appt</span>
+        <span>@bailyautostudio · bailyautostudio.com</span>
+      </div>
+      <div class="cf-dba">Baily Precision<br>Auto LLC</div>
+    </div>
+  </div>
+
+</div><!-- /.card-sheet front -->
+
+<!-- ── BACK SIDE ── -->
+<div class="page-label" style="margin-top:2rem;">Back Side — Print second (flip sheet)</div>
+<div class="card-sheet">
+
+  <div class="card card-back">
+    <div class="cb-inner">
+      <div class="cb-name">BAILY<br>AUTO STUDIO</div>
+      <span class="cb-tagline">Take Chances… Make Champions!!!</span>
+      <div class="cb-divider"></div>
+      <div class="cb-services">
+        <span>Hand Wash</span>
+        <span>Mobile Detail</span>
+        <span>Full Detailing</span>
+        <span>Towing</span>
+        <span>Auto Sales</span>
+        <span>Cleaning Svcs</span>
+      </div>
+      <span class="cb-url">bailyautostudio.com · @bailyautostudio</span>
+    </div>
+  </div>
+
+  <div class="card card-back">
+    <div class="cb-inner">
+      <div class="cb-name">BAILY<br>AUTO STUDIO</div>
+      <span class="cb-tagline">Take Chances… Make Champions!!!</span>
+      <div class="cb-divider"></div>
+      <div class="cb-services">
+        <span>Hand Wash</span>
+        <span>Mobile Detail</span>
+        <span>Full Detailing</span>
+        <span>Towing</span>
+        <span>Auto Sales</span>
+        <span>Cleaning Svcs</span>
+      </div>
+      <span class="cb-url">bailyautostudio.com · @bailyautostudio</span>
+    </div>
+  </div>
+
+  <div class="card card-back">
+    <div class="cb-inner">
+      <div class="cb-name">BAILY<br>AUTO STUDIO</div>
+      <span class="cb-tagline">Take Chances… Make Champions!!!</span>
+      <div class="cb-divider"></div>
+      <div class="cb-services">
+        <span>Hand Wash</span>
+        <span>Mobile Detail</span>
+        <span>Full Detailing</span>
+        <span>Towing</span>
+        <span>Auto Sales</span>
+        <span>Cleaning Svcs</span>
+      </div>
+      <span class="cb-url">bailyautostudio.com · @bailyautostudio</span>
+    </div>
+  </div>
+
+  <div class="card card-back">
+    <div class="cb-inner">
+      <div class="cb-name">BAILY<br>AUTO STUDIO</div>
+      <span class="cb-tagline">Take Chances… Make Champions!!!</span>
+      <div class="cb-divider"></div>
+      <div class="cb-services">
+        <span>Hand Wash</span>
+        <span>Mobile Detail</span>
+        <span>Full Detailing</span>
+        <span>Towing</span>
+        <span>Auto Sales</span>
+        <span>Cleaning Svcs</span>
+      </div>
+      <span class="cb-url">bailyautostudio.com · @bailyautostudio</span>
+    </div>
+  </div>
+
+  <div class="card card-back">
+    <div class="cb-inner">
+      <div class="cb-name">BAILY<br>AUTO STUDIO</div>
+      <span class="cb-tagline">Take Chances… Make Champions!!!</span>
+      <div class="cb-divider"></div>
+      <div class="cb-services">
+        <span>Hand Wash</span>
+        <span>Mobile Detail</span>
+        <span>Full Detailing</span>
+        <span>Towing</span>
+        <span>Auto Sales</span>
+        <span>Cleaning Svcs</span>
+      </div>
+      <span class="cb-url">bailyautostudio.com · @bailyautostudio</span>
+    </div>
+  </div>
+
+  <div class="card card-back">
+    <div class="cb-inner">
+      <div class="cb-name">BAILY<br>AUTO STUDIO</div>
+      <span class="cb-tagline">Take Chances… Make Champions!!!</span>
+      <div class="cb-divider"></div>
+      <div class="cb-services">
+        <span>Hand Wash</span>
+        <span>Mobile Detail</span>
+        <span>Full Detailing</span>
+        <span>Towing</span>
+        <span>Auto Sales</span>
+        <span>Cleaning Svcs</span>
+      </div>
+      <span class="cb-url">bailyautostudio.com · @bailyautostudio</span>
+    </div>
+  </div>
+
+  <div class="card card-back">
+    <div class="cb-inner">
+      <div class="cb-name">BAILY<br>AUTO STUDIO</div>
+      <span class="cb-tagline">Take Chances… Make Champions!!!</span>
+      <div class="cb-divider"></div>
+      <div class="cb-services">
+        <span>Hand Wash</span>
+        <span>Mobile Detail</span>
+        <span>Full Detailing</span>
+        <span>Towing</span>
+        <span>Auto Sales</span>
+        <span>Cleaning Svcs</span>
+      </div>
+      <span class="cb-url">bailyautostudio.com · @bailyautostudio</span>
+    </div>
+  </div>
+
+  <div class="card card-back">
+    <div class="cb-inner">
+      <div class="cb-name">BAILY<br>AUTO STUDIO</div>
+      <span class="cb-tagline">Take Chances… Make Champions!!!</span>
+      <div class="cb-divider"></div>
+      <div class="cb-services">
+        <span>Hand Wash</span>
+        <span>Mobile Detail</span>
+        <span>Full Detailing</span>
+        <span>Towing</span>
+        <span>Auto Sales</span>
+        <span>Cleaning Svcs</span>
+      </div>
+      <span class="cb-url">bailyautostudio.com · @bailyautostudio</span>
+    </div>
+  </div>
+
+  <div class="card card-back">
+    <div class="cb-inner">
+      <div class="cb-name">BAILY<br>AUTO STUDIO</div>
+      <span class="cb-tagline">Take Chances… Make Champions!!!</span>
+      <div class="cb-divider"></div>
+      <div class="cb-services">
+        <span>Hand Wash</span>
+        <span>Mobile Detail</span>
+        <span>Full Detailing</span>
+        <span>Towing</span>
+        <span>Auto Sales</span>
+        <span>Cleaning Svcs</span>
+      </div>
+      <span class="cb-url">bailyautostudio.com · @bailyautostudio</span>
+    </div>
+  </div>
+
+  <div class="card card-back">
+    <div class="cb-inner">
+      <div class="cb-name">BAILY<br>AUTO STUDIO</div>
+      <span class="cb-tagline">Take Chances… Make Champions!!!</span>
+      <div class="cb-divider"></div>
+      <div class="cb-services">
+        <span>Hand Wash</span>
+        <span>Mobile Detail</span>
+        <span>Full Detailing</span>
+        <span>Towing</span>
+        <span>Auto Sales</span>
+        <span>Cleaning Svcs</span>
+      </div>
+      <span class="cb-url">bailyautostudio.com · @bailyautostudio</span>
+    </div>
+  </div>
+
+</div><!-- /.card-sheet back -->
+
+</body>
+</html>

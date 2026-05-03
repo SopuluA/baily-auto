@@ -1,0 +1,16 @@
+{
+  "name": "baily-auto",
+  "version": "1.0.0",
+  "description": "Single-page website for **Baily Precision Auto LLC** (DBA Baily's Turbowash 2 / Baily Auto Studio).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "playwright": "^1.59.1"
+  }
+}
