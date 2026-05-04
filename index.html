@@ -168,20 +168,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="images/gallery-5.jpg">
 
   <style>
     :root {
       --accent: #00AAFF;
+      --accent-light: #33BBFF;
       --accent-dim: rgba(0,170,255,0.12);
       --silver: #C0C0C0;
       --silver-dim: rgba(192,192,192,0.10);
       --black: #090909;
+      --footer-bg: #050505;
       --dark: #111111;
       --dark2: #1a1a1a;
       --dark3: #222222;
       --gray: #777777;
       --gray-light: #999999;
       --white: #f0f0f0;
+      --on-accent: #000;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -215,11 +219,11 @@
       font-weight: 700; font-size: 1.1rem;
       letter-spacing: .06em; text-transform: uppercase;
       text-decoration: none; cursor: pointer; border: none;
-      transition: all .22s ease;
+      transition: background-color .22s ease, color .22s ease, transform .22s ease, box-shadow .22s ease, border-color .22s ease;
     }
-    .btn-primary  { background: var(--accent); color: #000; }
+    .btn-primary  { background: var(--accent); color: var(--on-accent); }
     .btn-primary:hover {
-      background: #33BBFF;
+      background: var(--accent-light);
       transform: translateY(-2px);
       box-shadow: 0 8px 28px rgba(0,170,255,.4);
     }
@@ -553,7 +557,7 @@
     /* ─────────── LIGHTBOX ─────────── */
     #lightbox {
       display: none; position: fixed; inset: 0; z-index: 9999;
-      background: rgba(0,0,0,.93);
+      background: rgba(9,9,9,.96);
       align-items: center; justify-content: center;
     }
     #lightbox.open { display: flex; }
@@ -659,7 +663,7 @@
     .form-btn { width: 100%; padding: 1rem; font-size: 1.15rem; margin-top: .25rem; }
 
     /* ─────────── FOOTER ─────────── */
-    footer { background: #050505; border-top: 1px solid rgba(255,255,255,.04); padding: 3.5rem 0 1.5rem; }
+    footer { background: var(--footer-bg); border-top: 1px solid rgba(255,255,255,.04); padding: 3.5rem 0 1.5rem; }
     .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
     .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.75rem; letter-spacing: .05em; text-decoration: none; color: var(--white); display: block; margin-bottom: 1rem; }
     .footer-logo span { color: var(--accent); }
@@ -713,7 +717,6 @@
     .skip-nav:focus { left: 1rem; }
 
     /* ─────────── FOCUS VISIBLE ─────────── */
-    * { outline: none; }
     *:focus-visible {
       outline: 2px solid var(--accent);
       outline-offset: 3px;
@@ -941,7 +944,7 @@
       <p class="s-sub">Mobile detail we come to you, or meet us on-site Fri &amp; Sat. Book by phone or the form below.</p>
     </div>
 
-    <div class="reveal">
+    <div class="reveal" style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
       <table class="pricing-table">
         <thead>
           <tr>
@@ -1142,12 +1145,12 @@
     </div>
 
     <!-- Lightbox -->
-    <div id="lightbox">
-      <button id="lb-close">&times;</button>
-      <button id="lb-prev">&#8249;</button>
+    <div id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+      <button id="lb-close" aria-label="Close photo viewer">&times;</button>
+      <button id="lb-prev" aria-label="Previous photo">&#8249;</button>
       <img id="lb-img" src="" alt="">
-      <button id="lb-next">&#8250;</button>
-      <div id="lb-counter"></div>
+      <button id="lb-next" aria-label="Next photo">&#8250;</button>
+      <div id="lb-counter" aria-live="polite"></div>
     </div>
 
     <div class="gallery-cta reveal">
@@ -1426,31 +1429,45 @@
   sections.forEach(s => so.observe(s));
 
   // ── Gallery lightbox & show more ──
-  const lbImages = Array.from(document.querySelectorAll('.gallery-item[data-lb] img')).map(img => img.src);
+  const lbItems = Array.from(document.querySelectorAll('.gallery-item[data-lb] img'));
+  const lbImages = lbItems.map(img => img.src);
+  const lbAlts   = lbItems.map(img => img.alt);
   const lb = document.getElementById('lightbox');
   const lbImg = document.getElementById('lb-img');
   const lbCounter = document.getElementById('lb-counter');
   let lbIndex = 0;
+  let lbTrigger = null;
 
-  function openLb(index) {
+  function openLb(index, trigger) {
     lbIndex = index;
     lbImg.src = lbImages[lbIndex];
+    lbImg.alt = lbAlts[lbIndex];
     lbCounter.textContent = (lbIndex + 1) + ' / ' + lbImages.length;
     lb.classList.add('open');
     document.body.style.overflow = 'hidden';
+    lbTrigger = trigger;
+    document.getElementById('lb-close').focus();
   }
   function closeLb() {
     lb.classList.remove('open');
     document.body.style.overflow = '';
+    if (lbTrigger) lbTrigger.focus();
   }
   function moveLb(dir) {
     lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
     lbImg.src = lbImages[lbIndex];
+    lbImg.alt = lbAlts[lbIndex];
     lbCounter.textContent = (lbIndex + 1) + ' / ' + lbImages.length;
   }
 
   document.querySelectorAll('.gallery-item[data-lb]').forEach(item => {
-    item.addEventListener('click', () => openLb(parseInt(item.dataset.lb)));
+    item.setAttribute('tabindex', '0');
+    item.setAttribute('role', 'button');
+    item.setAttribute('aria-label', item.querySelector('img')?.alt || 'View photo');
+    item.addEventListener('click', () => openLb(parseInt(item.dataset.lb), item));
+    item.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLb(parseInt(item.dataset.lb), item); }
+    });
   });
   document.getElementById('lb-close').addEventListener('click', closeLb);
   document.getElementById('lb-prev').addEventListener('click', () => moveLb(-1));
