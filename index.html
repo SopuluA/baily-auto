@@ -795,67 +795,34 @@
   <div class="container">
     <div class="section-header reveal">
       <div class="s-label">Columbus · Westside</div>
-      <h2 class="s-title">Auto Detailing Services in Columbus, OH</h2>
-      <p class="s-sub">From a quick hand wash to a full detail — we keep your ride looking immaculate.</p>
+      <h2 class="s-title">What We Do in Columbus, OH</h2>
+      <p class="s-sub">Towing, mobile detailing, and quality pre-owned vehicles — all under one name.</p>
     </div>
 
     <div class="services-grid">
 
-      <!-- Hand Wash -->
-      <div class="service-card reveal">
-        <span class="s-num">01</span>
-        <div class="s-name">Hand Wash</div>
-        <p class="s-desc">Professional hand wash service — no automated brushes, just skill and attention to detail. We do it right every time.</p>
-        <div class="price-row">
-          <div class="price-item">
-            <span class="price-veh">Cars</span>
-            <span class="price-num">45</span>
-          </div>
-          <div class="price-item">
-            <span class="price-veh">Trucks / SUVs</span>
-            <span class="price-num">65</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Mobile Detail -->
-      <div class="service-card accent reveal d1">
-        <span class="s-num">02</span>
-        <div class="s-name">Mobile Detail</div>
-        <p class="s-desc">We come to you. Book your mobile detail and we'll bring the shine directly to your driveway, office, or wherever you are.</p>
-        <span class="price-cta silver">By Appointment Only</span>
-      </div>
-
-      <!-- Full Detail -->
-      <div class="service-card reveal d2">
-        <span class="s-num">03</span>
-        <div class="s-name">Full Auto Detailing</div>
-        <p class="s-desc">Steam cleaned, shampooed &amp; fully restored — interior and exterior. You will be amazed at the transformation. #NOTTODIRTY</p>
-        <span class="price-cta accent">Call for pricing</span>
-      </div>
-
-      <!-- Towing -->
+      <!-- Towing & Transport -->
       <div class="service-card accent reveal">
-        <span class="s-num">04</span>
-        <div class="s-name">Towing</div>
-        <p class="s-desc">Stranded? We've got you. Fast, reliable towing service throughout Columbus — call us and we'll handle it.</p>
+        <span class="s-num">01</span>
+        <div class="s-name">Towing &amp; Vehicle Transport</div>
+        <p class="s-desc">Stranded or need your vehicle moved? We run fast, reliable towing and transportation throughout Columbus — call us anytime.</p>
         <span class="price-cta silver">Call for rates</span>
       </div>
 
-      <!-- Auto Sales -->
+      <!-- Mobile Detail -->
       <div class="service-card reveal d1">
-        <span class="s-num">05</span>
-        <div class="s-name">Auto Sales</div>
-        <p class="s-desc">Looking for your next vehicle? We carry quality pre-owned inventory. Talk to us about what you're searching for.</p>
-        <span class="price-cta accent">Inventory available</span>
+        <span class="s-num">02</span>
+        <div class="s-name">Mobile Auto Detailing</div>
+        <p class="s-desc">We come to you. Steam cleaned, shampooed &amp; fully restored — interior and exterior. Available by appointment any day.</p>
+        <span class="price-cta accent">By Appointment Only</span>
       </div>
 
-      <!-- Cleaning Services -->
-      <div class="service-card reveal d2">
-        <span class="s-num">06</span>
-        <div class="s-name">Cleaning Services</div>
-        <p class="s-desc">Beyond auto — we bring our precision and standards to professional cleaning services. Get in touch to discuss your needs.</p>
-        <span class="price-cta accent">Call for details</span>
+      <!-- Auto Sales -->
+      <div class="service-card accent reveal d2">
+        <span class="s-num">03</span>
+        <div class="s-name">Auto Sales</div>
+        <p class="s-desc">Looking for your next vehicle? We carry quality pre-owned inventory. Talk to us about what you're searching for.</p>
+        <span class="price-cta silver">Inventory available</span>
       </div>
 
     </div>
@@ -1029,7 +996,7 @@
         <div class="form-title">Book / Inquire</div>
         <p class="form-sub">Fill out the form and we'll get back to you ASAP.</p>
 
-        <form action="https://formspree.io/f/xnjwpjar" method="POST">
+        <form id="contactForm">
           <div class="form-row">
             <div class="form-group">
               <label for="name">Name *</label>
@@ -1048,13 +1015,10 @@
             <label for="service">Service</label>
             <select id="service" name="service">
               <option value="">Select a service...</option>
-              <option value="hand-wash-car">Hand Wash — Car ($45)</option>
-              <option value="hand-wash-truck">Hand Wash — Truck / SUV ($65)</option>
-              <option value="mobile-detail">Mobile Detail (Appointment)</option>
+              <option value="towing">Towing / Vehicle Transport</option>
+              <option value="mobile-detail">Mobile Detail (By Appointment)</option>
               <option value="full-detail">Full Auto Detail</option>
-              <option value="towing">Towing</option>
               <option value="auto-sales">Auto Sales Inquiry</option>
-              <option value="cleaning">Cleaning Services</option>
               <option value="other">Other / Question</option>
             </select>
           </div>
@@ -1062,7 +1026,8 @@
             <label for="message">Message</label>
             <textarea id="message" name="message" placeholder="Tell us about your vehicle, preferred time, or any questions..."></textarea>
           </div>
-          <button type="submit" class="btn btn-primary form-btn">Send Message</button>
+          <button type="submit" id="formSubmitBtn" class="btn btn-primary form-btn">Send Message</button>
+          <p id="formSuccess" style="display:none;margin-top:1rem;color:#4ade80;font-weight:600;">Message sent! We'll get back to you soon.</p>
         </form>
       </div>
 
@@ -1164,13 +1129,35 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 
-  // Form: prevent double-submit
-  const contactForm = document.querySelector('.contact-form form');
+  // Form: AJAX submit — stay on page
+  const contactForm = document.getElementById('contactForm');
   if (contactForm) {
-    const submitBtn = contactForm.querySelector('[type="submit"]');
-    contactForm.addEventListener('submit', () => {
+    const submitBtn = document.getElementById('formSubmitBtn');
+    const successMsg = document.getElementById('formSuccess');
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending…';
+      try {
+        const res = await fetch('https://formspree.io/f/xnjwpjar', {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          contactForm.reset();
+          successMsg.style.display = 'block';
+          submitBtn.textContent = 'Sent!';
+        } else {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message';
+          alert('Something went wrong. Please call us at 614-381-3091.');
+        }
+      } catch {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+        alert('Something went wrong. Please call us at 614-381-3091.');
+      }
     });
   }
 
