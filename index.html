@@ -436,6 +436,29 @@
     .price-cta.accent { color: var(--accent); }
     .price-cta.silver { color: var(--silver); }
 
+    /* ─────────── PRICING ─────────── */
+    #pricing { background: var(--black); }
+    .pricing-table { width: 100%; border-collapse: collapse; margin-top: 2rem; }
+    .pricing-table th, .pricing-table td {
+      padding: .85rem 1rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .pricing-table th {
+      font-family: 'Barlow Condensed', sans-serif; font-size: .8rem;
+      text-transform: uppercase; letter-spacing: .12em; color: var(--gray);
+    }
+    .pricing-table th:first-child { color: var(--accent); }
+    .pricing-table td:first-child {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.05rem;
+    }
+    .pricing-table td { color: var(--white); font-size: .95rem; }
+    .pricing-table tr:last-child td { border-bottom: none; }
+    .pricing-table tr:hover td { background: rgba(255,255,255,.025); }
+    .pt-price { color: var(--accent); font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; }
+    .pt-exotic td { border-top: 1px solid rgba(192,192,192,.15); }
+    .pt-exotic td:first-child { color: var(--silver); }
+    .pt-exotic .pt-price { color: var(--silver); }
+    .pricing-note { font-size: .8rem; color: var(--gray); margin-top: 1.5rem; }
+
     /* ─────────── ABOUT ─────────── */
     #about { background: var(--black); }
 
@@ -709,9 +732,10 @@
       <a href="#hero" class="nav-logo"><img src="images/logo-precision-auto-2.png" alt="Baily Precision Auto LLC" style="height:46px;width:auto;display:block;"></a>
       <ul class="nav-links">
         <li><a href="#services">Services</a></li>
+        <li><a href="#pricing">Pricing</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact">Book</a></li>
       </ul>
       <div class="nav-cta">
         <a href="tel:6143813091" class="btn btn-primary" style="padding:.6rem 1.25rem;font-size:.9rem;">
@@ -729,9 +753,10 @@
 <!-- Mobile menu -->
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu" aria-modal="true">
   <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#pricing"  onclick="closeMenu()">Pricing</a>
   <a href="#about"    onclick="closeMenu()">About</a>
-  <a href="#gallery"   onclick="closeMenu()">Gallery</a>
-  <a href="#contact"  onclick="closeMenu()">Contact</a>
+  <a href="#gallery"  onclick="closeMenu()">Gallery</a>
+  <a href="#contact"  onclick="closeMenu()">Book</a>
   <a href="tel:6143813091" class="btn btn-primary" onclick="closeMenu()">614-381-3091</a>
 </div>
 
@@ -805,26 +830,104 @@
       <div class="service-card accent reveal">
         <span class="s-num">01</span>
         <div class="s-name">Towing &amp; Vehicle Transport</div>
-        <p class="s-desc">Stranded or need your vehicle moved? We run fast, reliable towing and transportation throughout Columbus — call us anytime.</p>
-        <span class="price-cta silver">Call for rates</span>
+        <p class="s-desc">Stranded or need your vehicle moved? Fast, reliable towing and transport throughout Columbus — call us anytime.</p>
+        <span class="price-cta silver">Call for rates · 614-381-3091</span>
       </div>
 
       <!-- Mobile Detail -->
       <div class="service-card reveal d1">
         <span class="s-num">02</span>
         <div class="s-name">Mobile Auto Detailing</div>
-        <p class="s-desc">We come to you. Steam cleaned, shampooed &amp; fully restored — interior and exterior. Available by appointment any day.</p>
-        <span class="price-cta accent">By Appointment Only</span>
+        <p class="s-desc">We come to you — full detail, wash, interior, exterior. Available by appointment any day. See pricing below.</p>
+        <span class="price-cta accent">From $45 · By Appointment</span>
+      </div>
+
+      <!-- Cleaning Services -->
+      <div class="service-card accent reveal d2">
+        <span class="s-num">03</span>
+        <div class="s-name">Cleaning Services</div>
+        <p class="s-desc">Professional vehicle cleaning done right. No shortcuts, just results.</p>
+        <div class="price-row" style="margin-top:.5rem;">
+          <div class="price-item">
+            <span class="price-veh">Cars</span>
+            <span class="price-num">25</span>
+          </div>
+          <div class="price-item">
+            <span class="price-veh">Trucks</span>
+            <span class="price-num">45</span>
+          </div>
+        </div>
       </div>
 
       <!-- Auto Sales -->
-      <div class="service-card accent reveal d2">
-        <span class="s-num">03</span>
+      <div class="service-card reveal" style="grid-column: 1 / -1; max-width: 400px; margin: 0 auto;">
+        <span class="s-num">04</span>
         <div class="s-name">Auto Sales</div>
         <p class="s-desc">Looking for your next vehicle? We carry quality pre-owned inventory. Talk to us about what you're searching for.</p>
-        <span class="price-cta silver">Inventory available</span>
+        <span class="price-cta accent">Inventory available · Call us</span>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PRICING ══════════ -->
+<section id="pricing" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="s-label">Transparent Pricing · No Surprises</div>
+      <h2 class="s-title">Detailing Packages</h2>
+      <p class="s-sub">Mobile detail we come to you, or meet us on-site Fri &amp; Sat. Book by phone or the form below.</p>
+    </div>
+
+    <div class="reveal">
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Sedan / Coupe</th>
+            <th>SUV / Van</th>
+            <th>Truck</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Full Detail</td>
+            <td class="pt-price">$175</td>
+            <td class="pt-price">$225</td>
+            <td class="pt-price">$275</td>
+          </tr>
+          <tr>
+            <td>Regular Wash</td>
+            <td class="pt-price">$45</td>
+            <td class="pt-price">$55</td>
+            <td class="pt-price">$65</td>
+          </tr>
+          <tr>
+            <td>Exterior Only</td>
+            <td class="pt-price">$75</td>
+            <td class="pt-price">$100</td>
+            <td class="pt-price">$125</td>
+          </tr>
+          <tr>
+            <td>Interior Only</td>
+            <td class="pt-price">$100</td>
+            <td class="pt-price">$125</td>
+            <td class="pt-price">$150</td>
+          </tr>
+          <tr class="pt-exotic">
+            <td>Exotic / High-End</td>
+            <td class="pt-price">$500–$750</td>
+            <td class="pt-price">$750–$1,000</td>
+            <td class="pt-price">$750–$1,000</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="pricing-note">Planes &amp; specialty aircraft — custom quote, starting at $5,000. &nbsp;·&nbsp; Cleaning Services: $25 cars · $45 trucks. &nbsp;·&nbsp; All mobile detail appointments by phone or form — call <a href="tel:6143813091" style="color:var(--accent);">614-381-3091</a>.</p>
+    </div>
+
+    <div style="text-align:center;margin-top:2.5rem;" class="reveal">
+      <a href="#contact" class="btn btn-primary">Book an Appointment</a>
     </div>
   </div>
 </section>
@@ -1022,11 +1125,26 @@
               <option value="other">Other / Question</option>
             </select>
           </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="appt-date">Preferred Date</label>
+              <input type="date" id="appt-date" name="preferred_date" min="">
+            </div>
+            <div class="form-group">
+              <label for="appt-time">Preferred Time</label>
+              <select id="appt-time" name="preferred_time">
+                <option value="">Anytime</option>
+                <option value="morning">Morning (10AM–12PM)</option>
+                <option value="afternoon">Afternoon (12PM–4PM)</option>
+                <option value="evening">Evening (4PM–9PM)</option>
+              </select>
+            </div>
+          </div>
           <div class="form-group">
             <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Tell us about your vehicle, preferred time, or any questions..."></textarea>
+            <textarea id="message" name="message" placeholder="Tell us about your vehicle — make, model, what service you need..."></textarea>
           </div>
-          <button type="submit" id="formSubmitBtn" class="btn btn-primary form-btn">Send Message</button>
+          <button type="submit" id="formSubmitBtn" class="btn btn-primary form-btn">Book / Send Message</button>
           <p id="formSuccess" style="display:none;margin-top:1rem;color:#4ade80;font-weight:600;">Message sent! We'll get back to you soon.</p>
         </form>
       </div>
@@ -1129,6 +1247,10 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 
+  // Set min date on appointment picker to today
+  const apptDate = document.getElementById('appt-date');
+  if (apptDate) apptDate.min = new Date().toISOString().split('T')[0];
+
   // Form: AJAX submit — stay on page
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
@@ -1150,7 +1272,7 @@
           submitBtn.textContent = 'Sent!';
         } else {
           submitBtn.disabled = false;
-          submitBtn.textContent = 'Send Message';
+          submitBtn.textContent = 'Book / Send Message';
           alert('Something went wrong. Please call us at 614-381-3091.');
         }
       } catch {
