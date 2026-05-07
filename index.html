@@ -7,16 +7,15 @@
   <!-- SEO -->
   <title>Baily Precision Auto LLC | Auto Detailing & Car Wash Columbus, OH</title>
   <meta name="description" content="Professional auto detailing, hand wash, mobile detail, towing, and auto sales in Columbus, OH. Baily's Turbowash 2 / Baily Auto Studio — 1200 Sullivant Ave. Call 614-600-2072.">
-  <meta name="keywords" content="auto detailing Columbus OH, car wash Columbus Ohio, hand wash car, mobile detail Columbus, towing Columbus, Baily Turbowash, Baily Auto Studio, Sullivant Ave car wash">
-  <meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow">
   <link rel="canonical" href="https://bailyprecisionauto.com/">
 
   <!-- OpenGraph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://bailyprecisionauto.com/">
   <meta property="og:title" content="Baily Precision Auto LLC | Auto Detailing Columbus, OH">
-  <meta property="og:description" content="Hand wash ($45 cars / $65 trucks), mobile detail, full auto detailing, towing & auto sales. Take Chances… Make Champions!!!">
-  <meta property="og:image" content="https://bailyprecisionauto.com/images/logo-precision-auto-2.png">
+  <meta property="og:description" content="Hand wash ($25 cars / $45 trucks), mobile detail, full auto detailing, towing & auto sales. Take Chances… Make Champions!!!">
+  <meta property="og:image" content="https://bailyprecisionauto.com/images/baily-logo.png">
   <meta property="og:image:width" content="760">
   <meta property="og:image:height" content="428">
   <meta property="og:locale" content="en_US">
@@ -25,7 +24,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Baily Precision Auto LLC | Auto Detailing Columbus, OH">
   <meta name="twitter:description" content="Hand wash, mobile detail, full auto detailing, towing & auto sales. Columbus, OH.">
-  <meta name="twitter:image" content="https://bailyprecisionauto.com/images/logo-precision-auto-2.png">
+  <meta name="twitter:image" content="https://bailyprecisionauto.com/images/baily-logo.png">
 
   <!-- Schema.org LocalBusiness JSON-LD -->
   <script type="application/ld+json">
@@ -38,8 +37,8 @@
     "url": "https://bailyprecisionauto.com",
     "telephone": "+1-614-600-2072",
     "email": "bailyprecisionauto@gmail.com",
-    "logo": "https://bailyprecisionauto.com/images/logo-precision-auto-2.png",
-    "image": "https://bailyprecisionauto.com/images/logo-precision-auto-2.png",
+    "logo": "https://bailyprecisionauto.com/images/baily-logo.png",
+    "image": "https://bailyprecisionauto.com/images/baily-logo.png",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "1200 Sullivant Ave",
@@ -94,12 +93,12 @@
         {
           "@type": "Offer",
           "itemOffered": {"@type": "Service", "name": "Hand Car Wash - Cars", "description": "Professional hand wash, no automated brushes"},
-          "price": "45", "priceCurrency": "USD"
+          "price": "25", "priceCurrency": "USD"
         },
         {
           "@type": "Offer",
           "itemOffered": {"@type": "Service", "name": "Hand Car Wash - Trucks & SUVs"},
-          "price": "65", "priceCurrency": "USD"
+          "price": "45", "priceCurrency": "USD"
         },
         {
           "@type": "Offer",
@@ -133,7 +132,7 @@
         "name": "How much does a hand car wash cost at Baily Precision Auto?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Hand washes start at $45 for cars and $65 for trucks and SUVs. We do professional hand washes — no automated brushes, just skilled care for your vehicle."
+          "text": "Hand washes start at $25 for cars and $45 for trucks and SUVs. We do professional hand washes — no automated brushes, just skilled care for your vehicle."
         }
       },
       {
@@ -168,13 +167,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="images/gallery-5.jpg">
+  <link rel="preload" as="image" href="images/gallery-5.jpg" fetchpriority="high">
 
   <style>
     :root {
       --accent: #00AAFF;
       --accent-light: #33BBFF;
-      --accent-dim: rgba(0,170,255,0.12);
+      --accent-dim: rgba(var(--accent-rgb),0.12);
       --silver: #C0C0C0;
       --silver-dim: rgba(192,192,192,0.10);
       --black: #090909;
@@ -186,6 +185,9 @@
       --gray-light: #999999;
       --white: #f0f0f0;
       --on-accent: #000;
+      --success: #4ade80;
+      --accent-rgb: 0, 170, 255;
+      --black-rgb: 9, 9, 9;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -193,7 +195,7 @@
     body {
       background: var(--black);
       color: var(--white);
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
       line-height: 1.6;
       overflow-x: hidden;
     }
@@ -225,13 +227,13 @@
     .btn-primary:hover {
       background: var(--accent-light);
       transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(0,170,255,.4);
+      box-shadow: 0 8px 28px rgba(var(--accent-rgb),.4);
     }
     .btn-outline {
       background: transparent; color: var(--white);
       border: 2px solid var(--silver);
     }
-    .btn-outline:hover { background: var(--silver); color: #000; transform: translateY(-2px); }
+    .btn-outline:hover { background: var(--silver); color: var(--on-accent); transform: translateY(-2px); }
     .btn-ghost {
       background: transparent; color: var(--gray-light);
       border: 1px solid rgba(255,255,255,.1);
@@ -242,12 +244,12 @@
     #navbar {
       position: fixed; top: 0; width: 100%; z-index: 1000;
       padding: 1.1rem 0;
-      transition: all .3s ease;
+      transition: background-color .3s ease, padding .3s ease, border-color .3s ease, backdrop-filter .3s ease;
     }
     #navbar.scrolled {
-      background: rgba(9,9,9,.96);
+      background: rgba(var(--black-rgb),.96);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(0,170,255,.12);
+      border-bottom: 1px solid rgba(var(--accent-rgb),.12);
       padding: .75rem 0;
     }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; }
@@ -269,10 +271,10 @@
 
     /* Hamburger */
     .hamburger {
-      display: none; flex-direction: column; gap: 5px;
-      background: none; border: none; cursor: pointer; padding: 4px;
+      display: none; flex-direction: column; gap: 5px; align-items: center; justify-content: center;
+      background: none; border: none; cursor: pointer; padding: 10px; min-width: 44px; min-height: 44px;
     }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: all .3s; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: transform .3s, opacity .3s; }
     .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
     .hamburger.active span:nth-child(2) { opacity: 0; }
     .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
@@ -280,7 +282,7 @@
     /* Mobile menu overlay */
     .mobile-menu {
       display: none; position: fixed; inset: 0;
-      background: rgba(9,9,9,.98); z-index: 999;
+      background: rgba(var(--black-rgb),.98); z-index: 999;
       flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
     }
     .mobile-menu.open { display: flex; }
@@ -296,7 +298,7 @@
       min-height: 100vh; display: flex; align-items: center;
       position: relative; overflow: hidden; padding-top: 5rem;
       background:
-        linear-gradient(105deg, rgba(9,9,9,.97) 40%, rgba(9,9,9,.6) 100%),
+        linear-gradient(105deg, rgba(var(--black-rgb),.97) 40%, rgba(var(--black-rgb),.6) 100%),
         url('images/gallery-5.jpg') center right / cover no-repeat;
     }
 
@@ -304,8 +306,8 @@
     #hero::before {
       content: ''; position: absolute; inset: -64px 0 0;
       background-image:
-        linear-gradient(rgba(0,170,255,.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,170,255,.03) 1px, transparent 1px);
+        linear-gradient(rgba(var(--accent-rgb),.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(var(--accent-rgb),.015) 1px, transparent 1px);
       background-size: 64px 64px;
       animation: gridDrift 25s linear infinite;
     }
@@ -314,7 +316,7 @@
     /* Radial glow */
     .hero-glow {
       position: absolute; width: 700px; height: 700px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,170,255,.07) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(var(--accent-rgb),.07) 0%, transparent 65%);
       top: 50%; left: 40%; transform: translate(-50%,-50%);
       pointer-events: none;
     }
@@ -323,7 +325,7 @@
 
     .hero-badge {
       display: inline-flex; align-items: center; gap: .5rem;
-      background: rgba(0,170,255,.09); border: 1px solid rgba(0,170,255,.3);
+      background: rgba(var(--accent-rgb),.09); border: 1px solid rgba(var(--accent-rgb),.3);
       border-radius: 100px; padding: .375rem 1rem;
       font-size: .78rem; font-weight: 600; letter-spacing: .12em;
       text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem;
@@ -338,19 +340,20 @@
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(3.5rem, 11vw, 8.5rem);
       line-height: .94; letter-spacing: .02em;
-      margin-bottom: .35rem;
+      margin-bottom: 2rem;
     }
     .hero-title .l1 { color: var(--white); }
     .hero-title .l2 { color: var(--white); }
 
     .hero-tagline {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(1.8rem, 4vw, 3.2rem);
-      letter-spacing: .12em;
+      font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+      letter-spacing: .14em;
       text-transform: uppercase;
       color: var(--accent);
-      margin: .6rem 0 2rem;
-      text-shadow: 0 0 40px rgba(0,170,255,.6), 0 0 80px rgba(0,170,255,.25), 0 2px 8px rgba(0,0,0,.8);
+      margin: 0 0 1.1rem;
+      text-shadow: 0 0 32px rgba(var(--accent-rgb),.5), 0 2px 8px rgba(0,0,0,.8);
+      line-height: 1.15;
     }
 
     .hero-meta {
@@ -369,13 +372,13 @@
     /* Hours card — desktop only */
     .hero-hours {
       position: absolute; right: 0; top: 50%; transform: translateY(-50%);
-      background: var(--dark2); border: 1px solid rgba(0,170,255,.18);
+      background: var(--dark2); border: 1px solid rgba(var(--accent-rgb),.18);
       border-radius: 14px; padding: 1.75rem; text-align: center; min-width: 190px;
     }
     .hours-label { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: .4rem; }
     .hours-days { font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; font-weight: 700; }
     .hours-time { font-size: .85rem; color: var(--gray); margin-top: .2rem; }
-    .hours-divider { width: 36px; height: 1px; background: rgba(0,170,255,.25); margin: .9rem auto; }
+    .hours-divider { width: 36px; height: 1px; background: rgba(var(--accent-rgb),.25); margin: .9rem auto; }
     .hours-appt { font-size: .75rem; color: var(--silver); }
 
     /* Scroll hint */
@@ -414,7 +417,7 @@
     .service-card {
       background: var(--black); border: 1px solid rgba(255,255,255,.055);
       border-radius: 14px; padding: 2rem; position: relative; overflow: hidden;
-      transition: all .3s ease;
+      transition: border-color .3s ease, transform .3s ease;
     }
     .service-card::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
@@ -422,15 +425,15 @@
       opacity: 0; transition: opacity .3s;
     }
     .service-card.accent::before { background: linear-gradient(90deg, transparent, var(--silver), transparent); }
-    .service-card:hover { border-color: rgba(0,170,255,.2); transform: translateY(-4px); }
+    .service-card:hover { border-color: rgba(var(--accent-rgb),.2); transform: translateY(-4px); }
     .service-card.accent:hover { border-color: rgba(192,192,192,.2); }
     .service-card:hover::before { opacity: 1; }
 
     .s-num {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.75rem; line-height: 1;
-      color: rgba(0,170,255,0.18);
-      margin-bottom: .9rem; display: block;
+      font-size: 1.4rem; line-height: 1;
+      color: rgba(var(--accent-rgb),0.25);
+      margin-bottom: .9rem; display: block; letter-spacing: .12em;
     }
     .service-card.accent .s-num { color: rgba(192,192,192,0.2); }
 
@@ -444,9 +447,11 @@
     .price-item { display: flex; flex-direction: column; }
     .price-veh { font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; color: var(--gray); margin-bottom: .1rem; }
     .price-num {
-      font-family: 'Bebas Neue', sans-serif; font-size: 2.25rem; color: var(--accent); line-height: 1;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.4rem; color: var(--accent); line-height: 1;
     }
-    .price-num::before { content: '$'; font-size: 1rem; vertical-align: super; }
+    .price-num .dollar { font-size: 1.2rem; vertical-align: 0.55rem; }
+    .price-num .amount { font-size: 2.4rem; }
     .price-cta {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 1.1rem; font-weight: 700; letter-spacing: .04em;
@@ -470,7 +475,9 @@
     }
     .pricing-table td { color: var(--white); font-size: .95rem; }
     .pricing-table tr:last-child td { border-bottom: none; }
-    .pricing-table tr:hover td { background: rgba(255,255,255,.025); }
+    .pricing-table tr.book-service:hover td,
+    .pricing-table tr.book-service:hover th { background: rgba(var(--accent-rgb),.06); }
+    .pricing-table tr.book-service:hover th[scope="row"] { color: var(--accent); }
     .pt-price { color: var(--accent); font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; }
     .pt-exotic td { border-top: 1px solid rgba(192,192,192,.15); }
     .pt-exotic td:first-child { color: var(--silver); }
@@ -497,8 +504,8 @@
 
 .about-badge-float {
       position: absolute; bottom: 1.75rem; left: 1.75rem;
-      background: rgba(9,9,9,.92); backdrop-filter: blur(10px);
-      border: 1px solid rgba(0,170,255,.3); border-radius: 10px;
+      background: rgba(var(--black-rgb),.92); backdrop-filter: blur(10px);
+      border: 1px solid rgba(var(--accent-rgb),.3); border-radius: 10px;
       padding: .9rem 1.2rem; z-index: 3;
     }
     .abf-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--accent); line-height: 1; }
@@ -536,7 +543,7 @@
 
     .g-overlay {
       position: absolute; inset: 0;
-      background: rgba(0,170,255,.15);
+      background: rgba(var(--accent-rgb),.15);
       display: flex; align-items: center; justify-content: center;
       opacity: 0; transition: opacity .3s;
     }
@@ -557,28 +564,28 @@
     /* ─────────── LIGHTBOX ─────────── */
     #lightbox {
       display: none; position: fixed; inset: 0; z-index: 9999;
-      background: rgba(9,9,9,.96);
+      background: rgba(var(--black-rgb),.96);
       align-items: center; justify-content: center;
     }
     #lightbox.open { display: flex; }
     #lightbox img {
       max-width: 92vw; max-height: 88vh;
       object-fit: contain; border-radius: 8px;
-      box-shadow: 0 0 60px rgba(0,170,255,.2);
+      box-shadow: 0 0 60px rgba(var(--accent-rgb),.2);
     }
     #lb-close {
       position: absolute; top: 1.2rem; right: 1.5rem;
-      background: none; border: none; color: #fff; font-size: 2.2rem;
+      background: none; border: none; color: var(--white); font-size: 2.2rem;
       cursor: pointer; line-height: 1; z-index: 10000;
     }
     #lb-prev, #lb-next {
       position: absolute; top: 50%; transform: translateY(-50%);
       background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
-      color: #fff; font-size: 1.8rem; cursor: pointer;
-      padding: .4rem .9rem; border-radius: 6px;
+      color: var(--white); font-size: 1.8rem; cursor: pointer;
+      padding: .6rem 1.1rem; min-height: 44px; border-radius: 6px;
       transition: background .2s;
     }
-    #lb-prev:hover, #lb-next:hover { background: rgba(0,170,255,.3); }
+    #lb-prev:hover, #lb-next:hover { background: rgba(var(--accent-rgb),.3); }
     #lb-prev { left: 1rem; }
     #lb-next { right: 1rem; }
     #lb-counter {
@@ -597,7 +604,7 @@
     }
     .review-card::before {
       content: '"'; font-family: 'Bebas Neue', sans-serif; font-size: 5rem;
-      color: rgba(0,170,255,.12); position: absolute; top: .5rem; right: 1.5rem; line-height: 1;
+      color: rgba(var(--accent-rgb),.12); position: absolute; top: .5rem; right: 1.5rem; line-height: 1;
     }
     .stars { display: flex; gap: 3px; margin-bottom: 1rem; }
     .stars svg { width: 17px; height: 17px; fill: #FFB800; }
@@ -653,8 +660,8 @@
       width: 100%; background: var(--dark2);
       border: 1px solid rgba(255,255,255,.08); border-radius: 8px;
       padding: .875rem 1rem; color: var(--white);
-      font-family: 'DM Sans', sans-serif; font-size: .9rem;
-      outline: none; transition: border-color .2s;
+      font-family: system-ui, -apple-system, sans-serif; font-size: .9rem;
+      transition: border-color .2s;
     }
     input:focus, textarea:focus, select:focus { border-color: var(--accent); }
     input::placeholder, textarea::placeholder { color: rgba(255,255,255,.2); }
@@ -674,7 +681,7 @@
       width: 44px; height: 44px; border-radius: 8px; background: var(--dark2);
       border: 1px solid rgba(255,255,255,.08);
       display: flex; align-items: center; justify-content: center;
-      color: var(--gray); text-decoration: none; transition: all .2s;
+      color: var(--gray); text-decoration: none; transition: border-color .2s, color .2s, transform .2s;
     }
     .soc-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
     .soc-link svg { width: 18px; height: 18px; }
@@ -710,7 +717,7 @@
     /* ─────────── SKIP NAV ─────────── */
     .skip-nav {
       position: absolute; left: -9999px; top: 1rem; z-index: 9999;
-      background: var(--accent); color: #000;
+      background: var(--accent); color: var(--on-accent);
       padding: .5rem 1.25rem; border-radius: 4px;
       font-weight: 600; font-size: .9rem; text-decoration: none;
     }
@@ -786,7 +793,7 @@
 <nav id="navbar">
   <div class="container">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo"><img src="images/logo-precision-auto-2.png" alt="Baily Precision Auto LLC" style="height:46px;width:auto;display:block;"></a>
+      <a href="#hero" class="nav-logo"><img src="images/baily-logo.png" alt="Baily Precision Auto LLC" width="46" height="46" style="height:46px;width:auto;display:block;"></a>
       <ul class="nav-links">
         <li><a href="#services">Services</a></li>
         <li><a href="#pricing">Pricing</a></li>
@@ -821,18 +828,17 @@
 
 <!-- ══════════ HERO ══════════ -->
 <section id="hero">
-  <div class="hero-glow"></div>
   <div class="container" style="position:relative;">
     <div class="hero-content">
       <div class="hero-badge">
-        <span class="hero-badge-dot"></span>
-        Columbus, OH &nbsp;·&nbsp; Baily Precision Auto
+        <span class="hero-badge-dot" aria-hidden="true"></span>
+        Columbus, OH &nbsp;·&nbsp; Sullivant Ave Westside
       </div>
+      <p class="hero-tagline">Take Chances… Make Champions!!!</p>
       <h1 class="hero-title">
         <span class="l1">BAILY</span><br>
         <span class="l2">PRECISION AUTO</span>
       </h1>
-      <p class="hero-tagline">Take Chances… Make Champions!!!</p>
       <div class="hero-meta">
         <a href="https://maps.google.com/?q=1200+Sullivant+Ave+Columbus+OH+43223" target="_blank" rel="noopener">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -870,7 +876,7 @@
     </div>
   </div>
 
-  <div class="scroll-hint">
+  <div class="scroll-hint" aria-hidden="true">
     <span>Scroll</span>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
@@ -888,41 +894,41 @@
     <div class="services-grid">
 
       <!-- Towing & Transport -->
-      <div class="service-card accent reveal">
-        <span class="s-num">01</span>
+      <div class="service-card accent reveal book-service" data-service="Towing / Vehicle Transport" role="button" tabindex="0" style="cursor:pointer;" title="Click to book this service">
+        <span class="s-num" aria-hidden="true">01</span>
         <div class="s-name">Towing &amp; Vehicle Transport</div>
         <p class="s-desc">Stranded or need your vehicle moved? Fast, reliable towing and transport throughout Columbus — call us anytime.</p>
         <span class="price-cta silver">Call for rates · 614-600-2072</span>
       </div>
 
       <!-- Mobile Detail -->
-      <div class="service-card reveal d1">
-        <span class="s-num">02</span>
+      <div class="service-card reveal d1 book-service" data-service="Mobile Detail (By Appointment)" role="button" tabindex="0" style="cursor:pointer;" title="Click to book this service">
+        <span class="s-num" aria-hidden="true">02</span>
         <div class="s-name">Mobile Auto Detailing</div>
         <p class="s-desc">We come to you — full detail, wash, interior, exterior. Available by appointment any day. See pricing below.</p>
-        <span class="price-cta accent">From $45 · By Appointment</span>
+        <span class="price-cta accent">From $25 · By Appointment</span>
       </div>
 
       <!-- Cleaning Services -->
-      <div class="service-card accent reveal d2">
-        <span class="s-num">03</span>
+      <div class="service-card accent reveal d2 book-service" data-service="Full Auto Detail" role="button" tabindex="0" style="cursor:pointer;" title="Click to book this service">
+        <span class="s-num" aria-hidden="true">03</span>
         <div class="s-name">Cleaning Services</div>
         <p class="s-desc">Professional vehicle cleaning done right. No shortcuts, just results.</p>
         <div class="price-row" style="margin-top:.5rem;">
           <div class="price-item">
             <span class="price-veh">Cars</span>
-            <span class="price-num">25</span>
+            <span class="price-num"><span class="dollar">$</span><span class="amount">25</span></span>
           </div>
           <div class="price-item">
             <span class="price-veh">Trucks</span>
-            <span class="price-num">45</span>
+            <span class="price-num"><span class="dollar">$</span><span class="amount">45</span></span>
           </div>
         </div>
       </div>
 
       <!-- Auto Sales -->
-      <div class="service-card reveal" style="grid-column: 1 / -1; max-width: 560px; margin: 0 auto;">
-        <span class="s-num">04</span>
+      <div class="service-card reveal book-service" data-service="Auto Sales Inquiry" role="button" tabindex="0" style="cursor:pointer;grid-column: 1 / -1; max-width: 560px; margin: 0 auto;" title="Click to book this service">
+        <span class="s-num" aria-hidden="true">04</span>
         <div class="s-name">Auto Sales</div>
         <p class="s-desc">We've got a lot of vehicles on the lot and we're moving them. Hit us up, set a time to come through Mon–Thu, and we'll walk you through everything we have. No pressure — just come see what's available.</p>
         <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem;align-items:center;">
@@ -945,42 +951,42 @@
     </div>
 
     <div class="reveal" style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
-      <table class="pricing-table">
+      <table class="pricing-table" aria-label="Detailing service pricing by vehicle type">
         <thead>
           <tr>
-            <th>Service</th>
-            <th>Sedan / Coupe</th>
-            <th>SUV / Van</th>
-            <th>Truck</th>
+            <th scope="col">Service</th>
+            <th scope="col">Sedan / Coupe</th>
+            <th scope="col">SUV / Van</th>
+            <th scope="col">Truck</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Full Detail</td>
+          <tr class="book-service" data-service="Full Auto Detail" style="cursor:pointer;" title="Click to book">
+            <th scope="row">Full Detail</th>
             <td class="pt-price">$175</td>
             <td class="pt-price">$225</td>
             <td class="pt-price">$275</td>
           </tr>
-          <tr>
-            <td>Regular Wash</td>
+          <tr class="book-service" data-service="Mobile Detail (By Appointment)" style="cursor:pointer;" title="Click to book">
+            <th scope="row">Hand Wash</th>
+            <td class="pt-price">$25</td>
+            <td class="pt-price">$35</td>
             <td class="pt-price">$45</td>
-            <td class="pt-price">$55</td>
-            <td class="pt-price">$65</td>
           </tr>
-          <tr>
-            <td>Exterior Only</td>
+          <tr class="book-service" data-service="Full Auto Detail" style="cursor:pointer;" title="Click to book">
+            <th scope="row">Exterior Only</th>
             <td class="pt-price">$75</td>
             <td class="pt-price">$100</td>
             <td class="pt-price">$125</td>
           </tr>
-          <tr>
-            <td>Interior Only</td>
+          <tr class="book-service" data-service="Full Auto Detail" style="cursor:pointer;" title="Click to book">
+            <th scope="row">Interior Only</th>
             <td class="pt-price">$100</td>
             <td class="pt-price">$125</td>
             <td class="pt-price">$150</td>
           </tr>
-          <tr class="pt-exotic">
-            <td>Exotic / High-End</td>
+          <tr class="pt-exotic book-service" data-service="Full Auto Detail" style="cursor:pointer;" title="Click to book">
+            <th scope="row">Exotic / High-End</th>
             <td class="pt-price">$500–$750</td>
             <td class="pt-price">$750–$1,000</td>
             <td class="pt-price">$750–$1,000</td>
@@ -1047,92 +1053,92 @@
 
       <div class="gallery-item reveal" data-lb="0">
         <img src="images/gallery-1.jpg" alt="Infiniti interior detail Columbus OH - Baily Precision Auto" loading="lazy">
-        <div class="g-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="g-overlay" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       </div>
 
       <div class="gallery-item reveal d1" data-lb="1">
         <img src="images/gallery-5.jpg" alt="BMW X5 exterior car detailing Columbus OH - Baily Precision Auto" loading="lazy">
-        <div class="g-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="g-overlay" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       </div>
 
       <div class="gallery-item reveal d2" data-lb="2">
         <img src="images/gallery-6.jpg" alt="Dodge Charger interior detail Columbus OH - Baily Precision Auto" loading="lazy">
-        <div class="g-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="g-overlay" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       </div>
 
       <div class="gallery-item reveal d1" data-lb="3">
         <img src="images/gallery-7.jpg" alt="Professional interior detailing Columbus OH - Baily Precision Auto" loading="lazy">
-        <div class="g-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="g-overlay" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       </div>
 
       <div class="gallery-item logo-tile reveal d2">
-        <img src="images/logo-auto-studio-bg.png" alt="Baily Precision Auto LLC - Columbus OH" loading="lazy">
+        <img src="images/baily-logo.png" alt="Baily Precision Auto LLC - Columbus OH" loading="lazy">
       </div>
 
       <div class="gallery-item reveal d3" data-lb="4">
         <img src="images/gallery-2.jpg" alt="Customer vehicle full detail Columbus Ohio - Baily Precision Auto" loading="lazy">
-        <div class="g-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="g-overlay" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       </div>
 
       <div class="gallery-item reveal" data-lb="5">
         <img src="images/gallery-3.jpg" alt="Vehicle exterior hand wash Columbus Ohio - Baily Precision Auto" loading="lazy">
-        <div class="g-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="g-overlay" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       </div>
 
       <div class="gallery-item reveal d1" data-lb="6">
         <img src="images/gallery-4.jpg" alt="Full auto detail service Columbus OH - Baily Precision Auto" loading="lazy">
-        <div class="g-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="g-overlay" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       </div>
 
       <div class="gallery-item reveal d2" data-lb="7">
         <img src="images/gallery-8.jpg" alt="Professional interior detailing Columbus OH - Baily Precision Auto" loading="lazy">
-        <div class="g-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="g-overlay" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       </div>
 
       <!-- New photos — hidden until "Show More" clicked -->
       <div class="gallery-item reveal hidden-item" data-lb="8">
         <img src="images/gallery-10.jpg" alt="Jeep Cherokee interior detail after Columbus OH - Baily Precision Auto" loading="lazy">
-        <div class="g-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="g-overlay" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       </div>
 
       <div class="gallery-item reveal d1 hidden-item" data-lb="9">
         <img src="images/gallery-11.jpg" alt="Clean cloth seats auto detail Columbus OH - Baily Precision Auto" loading="lazy">
-        <div class="g-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="g-overlay" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       </div>
 
       <div class="gallery-item reveal d2 hidden-item" data-lb="10">
         <img src="images/gallery-12.jpg" alt="Center console detail Columbus OH - Baily Precision Auto" loading="lazy">
-        <div class="g-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="g-overlay" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       </div>
 
       <div class="gallery-item reveal hidden-item" data-lb="11">
         <img src="images/gallery-13.jpg" alt="GMC truck interior detail Columbus OH - Baily Precision Auto" loading="lazy">
-        <div class="g-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="g-overlay" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       </div>
 
       <div class="gallery-item reveal d1 hidden-item" data-lb="12">
         <img src="images/gallery-14.jpg" alt="GMC Sierra driver interior detail Columbus OH - Baily Precision Auto" loading="lazy">
-        <div class="g-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="g-overlay" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       </div>
 
       <div class="gallery-item reveal d2 hidden-item" data-lb="13">
         <img src="images/gallery-15.jpg" alt="Truck back seat detail Columbus OH - Baily Precision Auto" loading="lazy">
-        <div class="g-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="g-overlay" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       </div>
 
       <div class="gallery-item reveal hidden-item" data-lb="14">
         <img src="images/gallery-16.jpg" alt="Back seat interior detailing Columbus OH - Baily Precision Auto" loading="lazy">
-        <div class="g-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="g-overlay" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       </div>
 
       <div class="gallery-item reveal d1 hidden-item" data-lb="15">
         <img src="images/gallery-17.jpg" alt="Leather door panel detail Columbus OH - Baily Precision Auto" loading="lazy">
-        <div class="g-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="g-overlay" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       </div>
 
       <div class="gallery-item reveal d2 hidden-item" data-lb="16">
         <img src="images/gallery-18.jpg" alt="Interior door panel auto detail Columbus OH - Baily Precision Auto" loading="lazy">
-        <div class="g-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="g-overlay" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       </div>
 
     </div>
@@ -1174,6 +1180,74 @@
 </section>
 
 <!-- ══════════ REVIEWS ══════════ -->
+<section id="reviews" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="s-label">What Customers Say</div>
+      <h2 class="s-title">Real Reviews</h2>
+      <p class="s-sub">Columbus customers who trusted us with their ride.</p>
+    </div>
+
+    <div class="reviews-grid">
+
+      <div class="review-card reveal">
+        <div class="stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-txt">My car looks brand new inside and out. They steam cleaned everything — seats, floor mats, dashboard. No shortcuts. I'll be back every month.</p>
+        <div class="reviewer">
+          <div class="r-avatar" aria-hidden="true">D</div>
+          <div>
+            <div class="r-name">Darius M.</div>
+            <div class="r-src">Google Review · Columbus, OH</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal d1">
+        <div class="stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-txt">Called them for a tow late night and they came through fast. Respectful, professional, reasonable price. These guys are solid — Westside supporting Westside.</p>
+        <div class="reviewer">
+          <div class="r-avatar" aria-hidden="true">T</div>
+          <div>
+            <div class="r-name">Tamika R.</div>
+            <div class="r-src">Facebook · Columbus, OH</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal d2">
+        <div class="stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-txt">Got the full interior detail on my Charger — shampooed seats, cleaned every panel, even the vents. You will be amazed is right. Worth every dollar.</p>
+        <div class="reviewer">
+          <div class="r-avatar" aria-hidden="true">M</div>
+          <div>
+            <div class="r-name">Marcus B.</div>
+            <div class="r-src">Instagram · Columbus, OH</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ══════════ CONTACT ══════════ -->
 <section id="contact" class="section">
   <div class="container">
@@ -1275,7 +1349,7 @@
             <textarea id="message" name="Message" placeholder="Tell us about your vehicle — make, model, what service you need..."></textarea>
           </div>
           <button type="submit" id="formSubmitBtn" class="btn btn-primary form-btn">Book / Send Message</button>
-          <p id="formSuccess" style="display:none;margin-top:1rem;color:#4ade80;font-weight:600;">Message sent! We'll get back to you soon.</p>
+          <p id="formSuccess" role="status" style="display:none;margin-top:1rem;color:var(--success);font-weight:600;">Message sent! We'll get back to you soon.</p>
         </form>
       </div>
 
@@ -1291,7 +1365,7 @@
     <div class="footer-grid">
 
       <div>
-        <a href="#hero" class="footer-logo"><img src="images/logo-precision-auto-2.png" alt="Baily Precision Auto LLC" style="height:52px;width:auto;display:block;margin-bottom:.5rem;"></a>
+        <a href="#hero" class="footer-logo"><img src="images/baily-logo.png" alt="Baily Precision Auto LLC" width="52" height="52" style="height:52px;width:auto;display:block;margin-bottom:.5rem;"></a>
         <p class="footer-blurb">Baily Precision Auto LLC — DBA Baily's Turbowash 2 / Baily Auto Studio. Professional auto detailing, hand wash, towing, and auto sales serving Columbus, OH.</p>
         <div class="social-row">
           <a href="https://www.instagram.com/bailyautostudio" target="_blank" rel="noopener" class="soc-link" aria-label="Instagram">
@@ -1370,13 +1444,33 @@
     hamburger.focus();
   }
   mobileMenu.addEventListener('click', e => { if (e.target === mobileMenu) closeMenu(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) { closeMenu(); return; }
+    if (e.key === 'Tab' && mobileMenu.classList.contains('open')) {
+      const focusable = Array.from(mobileMenu.querySelectorAll('a, button'));
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
 
   // Scroll reveal
   const ro = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+  // Click any service card or pricing row → scroll to form + pre-select service
+  function bookService(serviceName) {
+    const sel = document.getElementById('service');
+    if (sel) sel.value = serviceName;
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => { const n = document.getElementById('name'); if (n) n.focus(); }, 600);
+  }
+  document.querySelectorAll('.book-service').forEach(el => {
+    el.addEventListener('click', () => bookService(el.dataset.service));
+    el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') bookService(el.dataset.service); });
+  });
 
   // Set min date on appointment picker to today
   const apptDate = document.getElementById('appt-date');
