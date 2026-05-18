@@ -429,15 +429,8 @@
       border-radius: 14px; padding: 2rem; position: relative; overflow: hidden;
       transition: border-color .3s ease, transform .3s ease;
     }
-    .service-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0; transition: opacity .3s;
-    }
-    .service-card.accent::before { background: linear-gradient(90deg, transparent, var(--silver), transparent); }
     .service-card:hover { border-color: rgba(var(--accent-rgb),.2); transform: translateY(-4px); }
     .service-card.accent:hover { border-color: rgba(var(--silver-rgb),.2); }
-    .service-card:hover::before { opacity: 1; }
 
     .s-num {
       font-family: 'Bebas Neue', sans-serif;
@@ -687,7 +680,7 @@
       transition: border-color .2s;
     }
     input:focus, textarea:focus, select:focus { border-color: var(--accent); }
-    input::placeholder, textarea::placeholder { color: rgba(255,255,255,.2); }
+    input::placeholder, textarea::placeholder { color: var(--gray); }
     select option { background: var(--dark2); }
     textarea { resize: vertical; min-height: 120px; }
     .form-btn { width: 100%; padding: 1rem; font-size: 1.15rem; margin-top: .25rem; }
